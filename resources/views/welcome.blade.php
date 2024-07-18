@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Forest Fires</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -27,10 +27,14 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
-                    @foreach($Forests as $area)
+                    @foreach($Forests as $forest)
                     <tr>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{ $area->NWCG_REPORTING_UNIT_NAME }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $area->count }}</td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                            <a href="{{ route('forest.detail', ['forestName' => $forest->NWCG_REPORTING_UNIT_NAME]) }}" class="text-blue-500 hover:text-blue-700">
+                                {{ $forest->NWCG_REPORTING_UNIT_NAME }}
+                            </a>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $forest->count }}</td>
                     </tr>
                     @endforeach
                 </tbody>

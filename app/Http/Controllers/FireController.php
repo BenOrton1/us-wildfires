@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fires;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class FireController extends Controller
 {
     public function index()
     {
@@ -15,5 +15,12 @@ class DashboardController extends Controller
             ->paginate(30);
 
         return view('welcome', ['Forests' => $uniqueAreas]);
+    }
+
+    public function forestDetails($forestName)
+    {
+        $fires = Fires::where('NWCG_REPORTING_UNIT_NAME', $forestName)->orderBy('DISCOVERY_DATE', 'desc')->paginate(15);
+
+        return view('forest_detail', ['fires' => $fires, 'forestName' => $forestName]);
     }
 }
