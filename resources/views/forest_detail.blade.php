@@ -35,7 +35,7 @@
                         <tr>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $fire->FPA_ID }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $fire->FIRE_NAME }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"> {{$fire->DISCOVERY_DATE}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ jdtogregorian($fire->DISCOVERY_DATE) }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $fire->STAT_CAUSE_DESCR }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ $fire->FIRE_SIZE }} Acres</td>
                         </tr>
