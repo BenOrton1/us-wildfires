@@ -12,7 +12,7 @@ class DashboardController extends Controller
         ini_set('max_execution_time', 300);
         $uniqueAreas = Fires::selectRaw('NWCG_REPORTING_UNIT_NAME, COUNT(*) as count')
             ->groupBy('NWCG_REPORTING_UNIT_NAME')
-            ->get();
+            ->paginate(30);
 
         return view('welcome', ['Forests' => $uniqueAreas]);
     }

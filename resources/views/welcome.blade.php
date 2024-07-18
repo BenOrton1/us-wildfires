@@ -16,7 +16,7 @@
 </head>
 
 <body class="bg-gray-100">
-    <div class="container mx-auto mt-10 p-4">
+    <div class="container mx-auto mt-10 p-4 max-w-screen-xl">
         <h1 class="text-3xl font-bold mb-4 text-center text-gray-800">Unique Areas and Incident Counts</h1>
         <div class="bg-white shadow-md rounded-lg overflow-hidden">
             <table class="min-w-full divide-y divide-gray-200">
@@ -35,6 +35,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="px-6 py-4">
+                {{ $Forests->links('pagination::tailwind') }}
+            </div>
         </div>
     </div>
 </body>
